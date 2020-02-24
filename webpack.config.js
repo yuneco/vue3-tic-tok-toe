@@ -7,8 +7,8 @@ module.exports = (env = {}) => ({
   devtool: env.prod ? 'source-map' : 'cheap-module-eval-source-map',
   entry: path.resolve(__dirname, './src/main.ts'),
   output: {
-    path: path.resolve(__dirname, './docs/dist'),
-    publicPath: '/docs/dist/'
+    path: path.resolve(__dirname, env.prod ? './docs/dist' : './dist'),
+    publicPath: env.prod ? '/docs/dist/' : '/dist/'
   },
   resolve: {
     extensions: ['.ts', '.js'],
@@ -46,13 +46,16 @@ module.exports = (env = {}) => ({
         test: /\.svg$/,
         use: {
           loader: 'url-loader',
-          options: { limit: 1 }
+          options: { limit: false }
       }
       },      {
         test: /\.scss$/,
         use: [
-          { loader: MiniCssExtractPlugin.loader },
-          { loader: 'css-loader' },
+          { loader: MiniCssExtractPlugin.loader, options: {
+              publicPath: './',
+            },
+          },
+          { loader: 'css-loader', options: {}},
           { loader: 'sass-loader', options: { implementation: require('sass') } }
         ],
       },
