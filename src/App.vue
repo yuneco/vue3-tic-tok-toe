@@ -1,5 +1,5 @@
 <template>
-  <div id="app-contents">
+  <div class="app">
     <img src="./logo.png">
     <h1>Hello Vue 3!</h1>
     <button @click="inc">Clicked {{ count }} times.</button>
@@ -24,11 +24,13 @@ export default {
 }
 </script>
 
-<style scoped>
-img {
-  width: 200px;
-}
-h1 {
-  font-family: Arial, Helvetica, sans-serif;
+<style lang="scss" scoped>
+.app {
+  img {
+    width: 200px;
+  }
+  h1 {
+    font-family: Arial, Helvetica, sans-serif;
+  }
 }
 </style>
