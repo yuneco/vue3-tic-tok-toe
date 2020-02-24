@@ -1,10 +1,12 @@
 <template>
-  <img src="./logo.png">
-  <h1>Hello Vue 3!</h1>
-  <button @click="inc">Clicked {{ count }} times.</button>
+  <div id="app-contents">
+    <img src="./logo.png">
+    <h1>Hello Vue 3!</h1>
+    <button @click="inc">Clicked {{ count }} times.</button>
+  </div>
 </template>
 
-<script>
+<script lang="ts">
 import { ref } from 'vue'
 
 export default {
