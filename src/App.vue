@@ -1,36 +1,47 @@
 <template>
-  <div class="app">
-    <img src="./logo.png">
-    <h1>Hello Vue 3!</h1>
-    <button @click="inc">Clicked {{ count }} times.</button>
+  <div is="app">
+    <div class="msg">{{ gameMsg }}</div>
+    <game-board
+      @nextTurn="nextTurn"
+      @gameEnd="gameEnd"
+    />
   </div>
 </template>
 
 <script lang="ts">
-import { ref } from 'vue'
+import { defineComponent, ref } from 'vue'
+import GameBoard from '@/components/GameBoard.vue'
 
-export default {
-  setup() {
-    const count = ref(0)
-    const inc = () => {
-      count.value++
+export default defineComponent({
+  name: 'app',
+  components: {
+    GameBoard
+  },
+  setup () {
+    const gameMsg = ref('')
+    const nextTurn = (player: string) => {
+      gameMsg.value = `${player}の番です`
     }
-
+    const gameEnd = (winner: string) => {
+      gameMsg.value = winner ? `${winner}の勝ちです` : '引き分けです'
+    }
     return {
-      count,
-      inc
+      gameMsg,
+      nextTurn,
+      gameEnd
     }
   }
-}
+})
 </script>
 
-<style lang="scss" scoped>
-.app {
-  img {
-    width: 200px;
-  }
-  h1 {
-    font-family: Arial, Helvetica, sans-serif;
+<style lang="scss">
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  .msg {
+    font-size: 2em;
   }
 }
 </style>
