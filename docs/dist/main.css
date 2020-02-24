@@ -1,0 +1,5 @@
+.game-cell[data-v-43396ff6]{border:1px solid gray}.game-cell.p1[data-v-43396ff6]{background-image:url(/docs/dist/bedc4fc8fc6e43d2d95e5dba8f1d2a87.svg)}.game-cell.p2[data-v-43396ff6]{background-image:url(/docs/dist/af0d39e781f7cf3ad1c2e316afcf0240.svg)}
+.game-board[data-v-ff1b397a]{display:flex;flex-wrap:wrap;width:100%}.game-board .game-cell[data-v-ff1b397a]{box-sizing:border-box;width:33%;margin:0 -1px -1px 0;font-size:100px;text-align:bottom;line-height:100%}.game-board .game-cell[data-v-ff1b397a]::before{content:"";padding-top:100%;display:block}
+#app{font-family:"Avenir",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;color:#2c3e50}#app .msg{font-size:2em}
+
+/*# sourceMappingURL=main.css.map*/
